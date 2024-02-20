@@ -1,0 +1,54 @@
+---
+# Examples: https://github.com/crosscompute/crosscompute-examples
+# Documentation: https://docs.crosscompute.com
+# Forum: https://forum.crosscompute.com
+# Gallery: https://crosscompute.net
+
+# crosscompute version determines how this file is interpreted (required)
+crosscompute: 0.9.4
+
+# name summarizes what your automation does
+name: Exam Review Platform
+title: Exam Review Platform - Ultimate Self-Study App
+description: Assists students review materials effectively and score better in exams.
+version: 0.0.1
+
+input:
+  templates:
+    - path: input.md
+  # input variables are provided to your scripts from the user or from batches
+  variables:
+    # id references this variable in your templates (required);
+    # view specifies how to render your variable (required);
+    # path specifies the file where your scripts load this variable (required);
+    #   note that path is relative to the input folder;
+    #   specify ENVIRONMENT to prevent saving the variable to disk;
+    # configuration customizes the look and feel of the view
+    - id: question_bank
+      view: file
+      path: question_bank.csv
+
+    - id: num_questions
+      view: number
+      path: variables.dictionary
+
+output:
+  templates:
+    - path: output.md
+  variables:
+    - id: mock_exam
+      view: link
+      path: mock_exam.txt
+
+# batches are pre-defined runs with specific values set for each input variable
+batches:
+  - folder: batches/standard
+
+# datasets are files that are urn input variables into output variables
+scripts:
+  - command: python3 run.py {input_folder} {output_folder}
+
+environment:
+  packages:
+    - id: pandas
+      manager: pip
