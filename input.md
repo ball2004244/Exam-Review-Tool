@@ -24,7 +24,7 @@ What is the capital of France?, Paris, geography;capital cities
 
 ## Create your own exam here
 
-1. Upload your question bank (questions.csv):
+1. Upload your question bank (get default question bank [here](https://github.com/ball2004244/Exam-Review-Platform/blob/main/batches/standard/input/question_bank.csv)):
    { question_bank }
 
 2. How many questions would you like to have?
