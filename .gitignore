@@ -162,4 +162,3 @@ cython_debug/
 # CrossCompute
 runs/
 debug/
-*.csv
