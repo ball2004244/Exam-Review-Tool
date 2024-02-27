@@ -37,6 +37,9 @@ output:
     - path: output.md
   variables:
     - id: mock_exam
+      view: markdown
+      path: mock_exam.txt
+    - id: mock_exam_link
       view: link
       path: mock_exam.txt
 

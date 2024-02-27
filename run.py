@@ -32,9 +32,7 @@ class Exam:
     def save_to_file(self, path: str):
         with open(path, 'w') as f:
             for i, q in enumerate(self.questions):
-                f.write(f'{i+1}. {q}\n')
-                f.write('Your answer: \n\n')
-
+                f.write(f'{i+1}. {q}\n\n\n')
 
 class Config:
     def __init__(self, path: str):
