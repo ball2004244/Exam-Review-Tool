@@ -1,4 +1,4 @@
-# Exam Review Platform - The Ultimate Self-Study App
+# Exam Review Tool - The Ultimate Self-Study App
 
 ## Introduction
 
@@ -24,7 +24,7 @@ What is the capital of France?, Paris, geography;capital cities
 
 ## Create your own exam here
 
-1. Upload your question bank (get default question bank [here](https://raw.githubusercontent.com/ball2004244/Exam-Review-Platform/main/batches/standard/input/question_bank.csv)):
+1. Upload your question bank (get default question bank [here](https://raw.githubusercontent.com/ball2004244/Exam-Review-Tool/main/batches/standard/input/question_bank.csv)):
    { question_bank }
 
 2. How many questions would you like to have?

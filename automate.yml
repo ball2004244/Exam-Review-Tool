@@ -8,8 +8,8 @@
 crosscompute: 0.9.4
 
 # name summarizes what your automation does
-name: Exam Review Platform
-title: Exam Review Platform - Ultimate Self-Study App
+name: Exam Review Tool
+title: Exam Review Tool - Ultimate Self-Study App
 description: Assists students review materials effectively and score better in exams.
 version: 0.0.1
 
