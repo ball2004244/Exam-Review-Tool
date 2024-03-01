@@ -39,13 +39,15 @@ class Exam:
         '''
         self.question_pairs = question_pairs
 
-    def format_answer(self, answer: str) -> str:
+    def format_answer(self, id:int, answer: str) -> str:
         '''
         Load Markdown template for answer
         '''
+
         formatted_answer = ''
         with open('format_answer.html', 'r') as f:
             formatted_answer = f.read().replace('{{final_answer}}', answer)
+            formatted_answer = formatted_answer.replace('{{id}}', str(id))
             
         return formatted_answer
 
@@ -53,39 +55,13 @@ class Exam:
         '''
         Display the exam in a html format on the browser
         '''
-        style = (
-            "<style>"
-            ".answer {"
-            "    display: none;"
-            "}"
-            "a {"
-            "    cursor: pointer;"
-            "}"
-            "</style>"
-        )
-
-        script = (
-            "<script type='text/javascript'>"
-            "window.onload = function() {"
-            "    var reveals = document.querySelectorAll('.reveal');"
-            "    reveals.forEach(function(reveal) {"
-            "        reveal.addEventListener('click', function() {"
-            "            console.log('clicked');"
-            "        });"
-            "    });"
-            "}"
-            "</script>"
-        )
         with open(path, 'w') as f:
-            f.write(style)
             for i, qa_pair in enumerate(self.question_pairs):
                 formatted_question = f'<br>{i+1}. {qa_pair[0]}<br>'
-                formatted_answer = self.format_answer(qa_pair[1])
+                formatted_answer = self.format_answer(i, qa_pair[1])
 
                 f.write(f'{formatted_question}{formatted_answer}')
             f.write('<br>')
-            f.write(script)
-            f.write('<br><br>')
                 
     def save_to_file(self, path: str) -> None:
         '''

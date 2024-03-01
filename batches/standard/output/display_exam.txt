@@ -1,6 +1,106 @@
-<style>.answer {    display: none;}a {    cursor: pointer;}</style><br>1. What is Vietnam's population?<br><a class="reveal">Reveal Answer</a>
-<div class="answer"> Vietnam's population is 97.04 million</div><br>2. What is programming?<br><a class="reveal">Reveal Answer</a>
-<div class="answer"> Programming is the process of creating a set of instructions that tell a computer how to perform a task</div><br>3. Where is the United States?<br><a class="reveal">Reveal Answer</a>
-<div class="answer"> The United States is located in North America</div><br>4. Who is the president of the United States?<br><a class="reveal">Reveal Answer</a>
-<div class="answer"> The president of the United States is Joe Biden</div><br>5. What is the capital of France?<br><a class="reveal">Reveal Answer</a>
-<div class="answer"> The capital of France is Paris</div><br><script type='text/javascript'>window.onload = function() {    var reveals = document.querySelectorAll('.reveal');    reveals.forEach(function(reveal) {        reveal.addEventListener('click', function() {            console.log('clicked');        });    });}</script><br><br>
+<br>1. What is programming?<br><div class="question">
+    <style>
+        #reveal_0:not(:checked) ~ .answer {
+            visibility: hidden;
+        }
+        #reveal_0 {
+            display: none;
+        }
+        .reveal {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            font-weight: bold;
+            user-select: none;
+        };
+    </style>
+    <input type="checkbox" id="reveal_0">
+    <label for="reveal_0" class="reveal">Reveal Answer</label>
+    <div class="answer">
+         Programming is the process of creating a set of instructions that tell a computer how to perform a task
+    </div>
+</div><br>2. Where is the United States?<br><div class="question">
+    <style>
+        #reveal_1:not(:checked) ~ .answer {
+            visibility: hidden;
+        }
+        #reveal_1 {
+            display: none;
+        }
+        .reveal {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            font-weight: bold;
+            user-select: none;
+        };
+    </style>
+    <input type="checkbox" id="reveal_1">
+    <label for="reveal_1" class="reveal">Reveal Answer</label>
+    <div class="answer">
+         The United States is located in North America
+    </div>
+</div><br>3. What is Vietnam's population?<br><div class="question">
+    <style>
+        #reveal_2:not(:checked) ~ .answer {
+            visibility: hidden;
+        }
+        #reveal_2 {
+            display: none;
+        }
+        .reveal {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            font-weight: bold;
+            user-select: none;
+        };
+    </style>
+    <input type="checkbox" id="reveal_2">
+    <label for="reveal_2" class="reveal">Reveal Answer</label>
+    <div class="answer">
+         Vietnam's population is 97.04 million
+    </div>
+</div><br>4. Who is the president of the United States?<br><div class="question">
+    <style>
+        #reveal_3:not(:checked) ~ .answer {
+            visibility: hidden;
+        }
+        #reveal_3 {
+            display: none;
+        }
+        .reveal {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            font-weight: bold;
+            user-select: none;
+        };
+    </style>
+    <input type="checkbox" id="reveal_3">
+    <label for="reveal_3" class="reveal">Reveal Answer</label>
+    <div class="answer">
+         The president of the United States is Joe Biden
+    </div>
+</div><br>5. What is the capital of France?<br><div class="question">
+    <style>
+        #reveal_4:not(:checked) ~ .answer {
+            visibility: hidden;
+        }
+        #reveal_4 {
+            display: none;
+        }
+        .reveal {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            font-weight: bold;
+            user-select: none;
+        };
+    </style>
+    <input type="checkbox" id="reveal_4">
+    <label for="reveal_4" class="reveal">Reveal Answer</label>
+    <div class="answer">
+         The capital of France is Paris
+    </div>
+</div><br>
