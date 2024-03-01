@@ -1,0 +1,6 @@
+<style>.answer {    display: none;}a {    cursor: pointer;}</style><br>1. What is Vietnam's population?<br><a class="reveal">Reveal Answer</a>
+<div class="answer"> Vietnam's population is 97.04 million</div><br>2. What is programming?<br><a class="reveal">Reveal Answer</a>
+<div class="answer"> Programming is the process of creating a set of instructions that tell a computer how to perform a task</div><br>3. Where is the United States?<br><a class="reveal">Reveal Answer</a>
+<div class="answer"> The United States is located in North America</div><br>4. Who is the president of the United States?<br><a class="reveal">Reveal Answer</a>
+<div class="answer"> The president of the United States is Joe Biden</div><br>5. What is the capital of France?<br><a class="reveal">Reveal Answer</a>
+<div class="answer"> The capital of France is Paris</div><br><script type='text/javascript'>window.onload = function() {    var reveals = document.querySelectorAll('.reveal');    reveals.forEach(function(reveal) {        reveal.addEventListener('click', function() {            console.log('clicked');        });    });}</script><br><br>
