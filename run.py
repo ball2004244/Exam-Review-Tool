@@ -39,16 +39,34 @@ class Exam:
         '''
         self.question_pairs = question_pairs
 
-    def format_answer(self, id:int, answer: str) -> str:
+    def format_ascii_math(self, text: str) -> str:
+        '''
+        Format ASCII Math to Markdown
+        '''
+        #TODO: Implement this function
+        return text
+        # return f'${text}$'
+
+    def format_question(self, order: int, question: str) -> str:
+        '''
+        Load Markdown template for question
+        '''
+        formatted_question = f'{order}. {self.format_ascii_math(question)}'
+        
+        return formatted_question
+
+    def format_answer(self, id: int, answer: str) -> str:
         '''
         Load Markdown template for answer
         '''
 
         formatted_answer = ''
         with open('format_answer.html', 'r') as f:
-            formatted_answer = f.read().replace('{{final_answer}}', answer)
-            formatted_answer = formatted_answer.replace('{{id}}', str(id))
+            formatted_answer = f.read()
             
+        formatted_answer = formatted_answer.replace('{{final_answer}}', self.format_ascii_math(answer))
+        formatted_answer = formatted_answer.replace('{{id}}', str(id))
+        
         return formatted_answer
 
     def display_question(self, path: str) -> None:
@@ -56,13 +74,15 @@ class Exam:
         Display the exam in a html format on the browser
         '''
         with open(path, 'w') as f:
+            f.write(f'{i+1}. {qa_pair[0]}\n\n')
+            
             for i, qa_pair in enumerate(self.question_pairs):
-                formatted_question = f'<br>{i+1}. {qa_pair[0]}<br>'
+                formatted_question = self.format_question(i + 1, qa_pair[0])
                 formatted_answer = self.format_answer(i, qa_pair[1])
 
-                f.write(f'{formatted_question}{formatted_answer}')
+                f.write(f'<br>{formatted_question}<br>{formatted_answer}')
             f.write('<br>')
-                
+
     def save_to_file(self, path: str) -> None:
         '''
         Generate a raw text file for download
@@ -101,7 +121,6 @@ def main() -> None:
     # Process output
     exam.display_question(display_file)
     exam.save_to_file(download_file)
-    
 
 
 if __name__ == '__main__':
