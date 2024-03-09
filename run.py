@@ -45,43 +45,53 @@ class Exam:
         '''
         #TODO: Implement this function
         return text
-        # return f'${text}$'
 
     def format_question(self, order: int, question: str) -> str:
         '''
         Load Markdown template for question
         '''
-        formatted_question = f'{order}. {self.format_ascii_math(question)}'
+        formatted_question = f'{order}. {question}'
         
         return formatted_question
 
-    def format_answer(self, id: int, answer: str) -> str:
+    def format_answer(self, id: int, answer: str, template: str='static/format_answer.html') -> str:
         '''
         Load Markdown template for answer
         '''
 
         formatted_answer = ''
-        with open('format_answer.html', 'r') as f:
+        with open(template, 'r') as f:
             formatted_answer = f.read()
             
-        formatted_answer = formatted_answer.replace('{{final_answer}}', self.format_ascii_math(answer))
+        formatted_answer = formatted_answer.replace('{{final_answer}}', answer)
         formatted_answer = formatted_answer.replace('{{id}}', str(id))
         
         return formatted_answer
 
-    def display_question(self, path: str) -> None:
+    def display_question(self, path: str, header_path: str=None) -> None:
         '''
         Display the exam in a html format on the browser
         '''
+        html_content = ''
+        header = None
+        
+        if header_path is not None:
+            with open(header_path, 'r') as f:
+                header = f.read()
+                
+        print(header)
+
         with open(path, 'w') as f:
-            f.write(f'{i+1}. {qa_pair[0]}\n\n')
-            
+            if header is not None:
+                f.write(f'{header}\n')
+
             for i, qa_pair in enumerate(self.question_pairs):
                 formatted_question = self.format_question(i + 1, qa_pair[0])
                 formatted_answer = self.format_answer(i, qa_pair[1])
 
-                f.write(f'<br>{formatted_question}<br>{formatted_answer}')
-            f.write('<br>')
+                html_content += f'\n<br>{formatted_question}<br>\n{formatted_answer}'
+            
+            f.write(f'{html_content}<br>')
 
     def save_to_file(self, path: str) -> None:
         '''
@@ -108,6 +118,7 @@ def main() -> None:
     inp_dict_path = in_dir / 'variables.dictionary'
     display_file = out_dir / 'display_exam.txt'
     download_file = out_dir / 'mock_exam.txt'
+    header_file = './static/mathjax_header.html'
 
     # Set up input
     question_bank = QuestionBank(question_bank_path)
@@ -119,7 +130,7 @@ def main() -> None:
     exam = Exam(question_pairs)
 
     # Process output
-    exam.display_question(display_file)
+    exam.display_question(display_file, header_path=header_file)
     exam.save_to_file(download_file)
 
 

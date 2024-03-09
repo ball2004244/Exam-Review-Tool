@@ -1,4 +1,15 @@
-<br>1. What is programming?<br><div class="question">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        asciimath2jax: {
+            delimiters: [['$', '$']],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // don't process these tags
+        }
+    });
+</script>
+
+<br>1. Find the critical points of the function $f(x) = x^3 - 3x^2 + 2$. The critical points are where the derivative $f'(x) = 0$<br>
+<div class="question">
     <style>
         #reveal_0:not(:checked) ~ .answer {
             visibility: hidden;
@@ -17,9 +28,11 @@
     <input type="checkbox" id="reveal_0">
     <label for="reveal_0" class="reveal">Reveal Answer</label>
     <div class="answer">
-         Programming is the process of creating a set of instructions that tell a computer how to perform a task
+         x = 0; x = 2
     </div>
-</div><br>2. Where is the United States?<br><div class="question">
+</div>
+<br>2. Who is the president of the United States?<br>
+<div class="question">
     <style>
         #reveal_1:not(:checked) ~ .answer {
             visibility: hidden;
@@ -38,9 +51,11 @@
     <input type="checkbox" id="reveal_1">
     <label for="reveal_1" class="reveal">Reveal Answer</label>
     <div class="answer">
-         The United States is located in North America
+         The president of the United States is Joe Biden
     </div>
-</div><br>3. What is Vietnam's population?<br><div class="question">
+</div>
+<br>3. $lim_(x->1) (x^2 - 1) / (x - 1)$<br>
+<div class="question">
     <style>
         #reveal_2:not(:checked) ~ .answer {
             visibility: hidden;
@@ -59,9 +74,11 @@
     <input type="checkbox" id="reveal_2">
     <label for="reveal_2" class="reveal">Reveal Answer</label>
     <div class="answer">
-         Vietnam's population is 97.04 million
+         2
     </div>
-</div><br>4. Who is the president of the United States?<br><div class="question">
+</div>
+<br>4. Find derivative of $f(x) = 3x^2 + 2x - 1$<br>
+<div class="question">
     <style>
         #reveal_3:not(:checked) ~ .answer {
             visibility: hidden;
@@ -80,9 +97,11 @@
     <input type="checkbox" id="reveal_3">
     <label for="reveal_3" class="reveal">Reveal Answer</label>
     <div class="answer">
-         The president of the United States is Joe Biden
+         $f'(x) = 6x + 2$
     </div>
-</div><br>5. What is the capital of France?<br><div class="question">
+</div>
+<br>5. What is the capital of France?<br>
+<div class="question">
     <style>
         #reveal_4:not(:checked) ~ .answer {
             visibility: hidden;

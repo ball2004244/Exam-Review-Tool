@@ -1,10 +1,10 @@
-1. What is programming?
+1. Find the critical points of the function $f(x) = x^3 - 3x^2 + 2$. The critical points are where the derivative $f'(x) = 0$
 
-2. Where is the United States?
+2. Who is the president of the United States?
 
-3. What is Vietnam's population?
+3. $lim_(x->1) (x^2 - 1) / (x - 1)$
 
-4. Who is the president of the United States?
+4. Find derivative of $f(x) = 3x^2 + 2x - 1$
 
 5. What is the capital of France?
 

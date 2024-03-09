@@ -22,6 +22,10 @@ For example:
 What is the capital of France?, Paris, geography;capital cities
 ```
 
+## Math Notation
+You might want to use math notation in your questions. We support ASCII Math notation, remember to wrap your texts between 2 dollar signs `$$`. For more information about ASCII Math syntax, check out [here](https://asciimath.org/)
+
+
 ## Create your own exam here
 
 1. Upload your question bank (get default question bank [here](https://raw.githubusercontent.com/ball2004244/Exam-Review-Tool/main/batches/standard/input/question_bank.csv)):
