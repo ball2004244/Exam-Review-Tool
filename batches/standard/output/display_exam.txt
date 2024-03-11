@@ -8,7 +8,7 @@
     });
 </script>
 
-<br>1. Find the critical points of the function $f(x) = x^3 - 3x^2 + 2$. The critical points are where the derivative $f'(x) = 0$<br>
+<br>1. $sum_(i=1)^n i^3=((n(n+1))/2)^2$ is it True?<br>
 <div class="question">
     <style>
         #reveal_0:not(:checked) ~ .answer {
@@ -28,10 +28,10 @@
     <input type="checkbox" id="reveal_0">
     <label for="reveal_0" class="reveal">Reveal Answer</label>
     <div class="answer">
-         x = 0; x = 2
+         True
     </div>
 </div>
-<br>2. Who is the president of the United States?<br>
+<br>2. What is the boiling point of water?<br>
 <div class="question">
     <style>
         #reveal_1:not(:checked) ~ .answer {
@@ -51,10 +51,10 @@
     <input type="checkbox" id="reveal_1">
     <label for="reveal_1" class="reveal">Reveal Answer</label>
     <div class="answer">
-         The president of the United States is Joe Biden
+         100 degrees Celsius
     </div>
 </div>
-<br>3. $lim_(x->1) (x^2 - 1) / (x - 1)$<br>
+<br>3. What is programming?<br>
 <div class="question">
     <style>
         #reveal_2:not(:checked) ~ .answer {
@@ -74,10 +74,10 @@
     <input type="checkbox" id="reveal_2">
     <label for="reveal_2" class="reveal">Reveal Answer</label>
     <div class="answer">
-         2
+         Programming is the process of creating a set of instructions that tell a computer how to perform a task
     </div>
 </div>
-<br>4. Find derivative of $f(x) = 3x^2 + 2x - 1$<br>
+<br>4. Who is the president of the United States?<br>
 <div class="question">
     <style>
         #reveal_3:not(:checked) ~ .answer {
@@ -97,10 +97,10 @@
     <input type="checkbox" id="reveal_3">
     <label for="reveal_3" class="reveal">Reveal Answer</label>
     <div class="answer">
-         $f'(x) = 6x + 2$
+         The president of the United States is Joe Biden
     </div>
 </div>
-<br>5. What is the capital of France?<br>
+<br>5. $dy/dx = y^2 - x$; find the value of y?<br>
 <div class="question">
     <style>
         #reveal_4:not(:checked) ~ .answer {
@@ -120,6 +120,6 @@
     <input type="checkbox" id="reveal_4">
     <label for="reveal_4" class="reveal">Reveal Answer</label>
     <div class="answer">
-         The capital of France is Paris
+         $y = (x^3 + 3)^(1/3)$
     </div>
 </div><br>

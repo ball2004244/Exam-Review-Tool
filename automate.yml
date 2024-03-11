@@ -32,6 +32,10 @@ input:
       view: number
       path: variables.dictionary
 
+    - id: question_tags
+      view: string
+      path: variables.dictionary
+
 output:
   templates:
     - path: output.md
