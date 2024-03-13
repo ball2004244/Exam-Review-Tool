@@ -34,6 +34,8 @@ Here is how you would use tags during exam creation:
 geography: 30, calculus: 20, physics: 100
 ```
 
+You can get default question bank [here](https://raw.githubusercontent.com/ball2004244/Exam-Review-Tool/main/batches/standard/input/question_bank.csv)
+
 ## Math Notation
 
 You might want to use math notation in your questions. We support ASCII Math notation, remember to wrap your texts between 2 backtick signs \`\`. For more information about ASCII Math syntax, check out [here](https://asciimath.org/)
@@ -42,7 +44,7 @@ If the mock exam does not display the math notation correctly, you can try to re
 
 ## Create your own exam here
 
-1. Upload your question bank (get default question bank [here](https://raw.githubusercontent.com/ball2004244/Exam-Review-Tool/main/batches/standard/input/question_bank.csv)):
+1. Upload your question bank (Get default question bank [here](https://raw.githubusercontent.com/ball2004244/Exam-Review-Tool/main/batches/standard/input/question_bank.csv)):
    { question_bank }
 
 2. How many questions would you like to have?
