@@ -110,23 +110,13 @@ class Exam:
 
         return formatted_answer
 
-    def display_question(self, path: str, header_path: str = None) -> None:
+    def display_question(self, path: str) -> None:
         '''
         Display the exam in a html format on the browser
         '''
         html_content = ''
-        header = None
-
-        if header_path is not None:
-            with open(header_path, 'r') as f:
-                header = f.read()
-
-        print(header)
 
         with open(path, 'w') as f:
-            if header is not None:
-                f.write(f'{header}\n')
-
             for i, qa_pair in enumerate(self.question_pairs):
                 formatted_question = self.format_question(i + 1, qa_pair[0])
                 formatted_answer = self.format_answer(i, qa_pair[1])
@@ -191,7 +181,6 @@ def main() -> None:
     inp_dict_path = in_dir / 'variables.dictionary'
     display_file = out_dir / 'display_exam.txt'
     download_file = out_dir / 'mock_exam.txt'
-    header_file = './static/mathjax_header.html'
 
     # Set up input
     question_bank = QuestionBank(question_bank_path)
@@ -208,7 +197,7 @@ def main() -> None:
     exam = Exam(question_pairs)
 
     # Process output
-    exam.display_question(display_file, header_path=header_file)
+    exam.display_question(display_file)
     exam.save_to_file(download_file)
 
 

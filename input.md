@@ -36,7 +36,7 @@ geography: 30, calculus: 20, physics: 100
 
 ## Math Notation
 
-You might want to use math notation in your questions. We support ASCII Math notation, remember to wrap your texts between 2 dollar signs `$$`. For more information about ASCII Math syntax, check out [here](https://asciimath.org/)
+You might want to use math notation in your questions. We support ASCII Math notation, remember to wrap your texts between 2 backtick signs \`\`. For more information about ASCII Math syntax, check out [here](https://asciimath.org/)
 
 If the mock exam does not display the math notation correctly, you can try to refresh the page or use a different browser.
 
