@@ -1,0 +1,13 @@
+.checkbox:not(:checked) ~ .answer {
+    visibility: hidden;
+}
+.checkbox {
+    display: none;
+}
+.reveal {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    font-weight: bold;
+    user-select: none;
+};

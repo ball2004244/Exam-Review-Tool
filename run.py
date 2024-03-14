@@ -1,7 +1,7 @@
 import json
 import sys
 from pathlib import Path
-from typing import List, Tuple, Dict
+from typing import List, Dict
 from random import sample
 import pandas as pd
 
@@ -14,12 +14,13 @@ class QuestionBank:
         self.count = self.questions.shape[0]
         self.all_tags = set()
 
-        for tag in self.questions['tags'].str.strip().str.split(';').explode().unique():
+        tags = self.questions['tags'].str.strip().str.split(';').explode()
+        for tag in tags.unique():
             if not tag.strip():
                 continue
             self.all_tags.add(tag.strip())
 
-    def __get_random_questions(self, num_questions: int) -> List[Tuple[str, str]]:
+    def __get_random_questions(self, num_questions: int) -> List[List[str]]:
         '''
         Randomly selects n questions from the question bank
         to build up a mock exam. The random algorithm initially
@@ -35,12 +36,14 @@ class QuestionBank:
             range(self.count), min(num_questions, self.count))
 
         selected_qa = self.questions.iloc[selected_idx]
-        return list(zip(selected_qa['question'], selected_qa['answer']))
+        return selected_qa[['question', 'answer']].values.tolist()
 
-    def generate_tags_questions(self, num_questions: int, tags: Dict[str, int]) -> List[Tuple[str, str]]:
+    def generate_tags_questions(self, num_questions: int,
+                                tags: Dict[str, int]) -> List[List[str]]:
         '''
         Generate questions based on tags.
-        If no tags are provided, then generate exam using normal random selection
+        If no tags are provided, then generate exam
+        using normal random selection
         '''
 
         # If no tags are provided, then generate exam from all questions
@@ -50,7 +53,7 @@ class QuestionBank:
         # randomly select questions based on tags
         selected_qa = set()
         for tag, count in tags.items():
-            if not tag in self.all_tags:
+            if tag not in self.all_tags:
                 continue
 
             # find all questions with the tag
@@ -71,22 +74,15 @@ class QuestionBank:
         # if there are still not enough questions, then select stop
 
         selected_qa = self.questions.iloc[list(selected_qa)]
-        return list(zip(selected_qa['question'], selected_qa['answer']))
+        return selected_qa[['question', 'answer']].values.tolist()
 
 
 class Exam:
-    def __init__(self, question_pairs: List[Tuple[str, str]]) -> None:
+    def __init__(self, question_pairs: List[List[str]]) -> None:
         '''
         A question pair contains of 1 question & 1 answer
         '''
         self.question_pairs = question_pairs
-
-    def format_ascii_math(self, text: str) -> str:
-        '''
-        Format ASCII Math to Markdown
-        '''
-        # TODO: Implement this function
-        return text
 
     def format_question(self, order: int, question: str) -> str:
         '''
@@ -96,7 +92,8 @@ class Exam:
 
         return formatted_question
 
-    def format_answer(self, id: int, answer: str, template: str = 'static/format_answer.html') -> str:
+    def format_answer(self, id: int, answer: str,
+                      template: str = 'static/format_answer.html') -> str:
         '''
         Load Markdown template for answer
         '''
@@ -121,9 +118,11 @@ class Exam:
                 formatted_question = self.format_question(i + 1, qa_pair[0])
                 formatted_answer = self.format_answer(i, qa_pair[1])
 
-                html_content += f'\n<br>{formatted_question}<br>\n{formatted_answer}'
+                html_content += (
+                    f'\n<br>{formatted_question}<br>\n{formatted_answer}\n'
+                )
 
-            f.write(f'{html_content}<br>')
+            f.write(f'{html_content}')
 
     def save_to_file(self, path: str) -> None:
         '''
@@ -151,12 +150,12 @@ class Config:
         tags_dict = {}
         raw_tags = raw_tags.strip().split(',')  # split into pairs
         for i, tag in enumerate(raw_tags):
-            # skip invalid tags
-            if ':' not in tag:
-                continue
+            # treat non colon as a tag with default value 1
+            value = '1'  # default value
 
-            # split into key value pair
-            tag, value = tag.split(':')
+            if ':' in tag:
+                # split into key value pair
+                tag, value = tag.split(':')
 
             tag = tag.strip()
             value = value.strip()
@@ -182,15 +181,15 @@ def main() -> None:
     display_file = out_dir / 'display_exam.txt'
     download_file = out_dir / 'mock_exam.txt'
 
+    if not question_bank_path.exists():
+        with open(display_file, 'w') as f:
+            f.write('You forgot to upload the question bank file')
+
     # Set up input
     question_bank = QuestionBank(question_bank_path)
     config = Config(inp_dict_path)
 
-    # Main Logic
-    # This does not use tags
-    # question_pairs = question_bank.get_random_questions(
-    #     config.get_num_questions())
-
+    # Generate exam
     question_pairs = question_bank.generate_tags_questions(
         config.get_num_questions(), config.get_format_tags())
 

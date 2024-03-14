@@ -1,20 +1,5 @@
 <div class="question">
-    <style>
-        #reveal_{{id}}:not(:checked) ~ .answer {
-            visibility: hidden;
-        }
-        #reveal_{{id}} {
-            display: none;
-        }
-        .reveal {
-            cursor: pointer;
-            color: blue;
-            text-decoration: underline;
-            font-weight: bold;
-            user-select: none;
-        };
-    </style>
-    <input type="checkbox" id="reveal_{{id}}">
+    <input type="checkbox" id="reveal_{{id}}" class="checkbox">
     <label for="reveal_{{id}}" class="reveal">Reveal Answer</label>
     <div class="answer">
         {{final_answer}}

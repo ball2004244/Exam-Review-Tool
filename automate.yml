@@ -55,6 +55,10 @@ batches:
 scripts:
   - command: python3 run.py {input_folder} {output_folder}
 
+display:
+  styles:
+    - path: static/styles.css
+
 environment:
   packages:
     - id: pandas

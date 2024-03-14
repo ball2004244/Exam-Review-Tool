@@ -1,6 +1,7 @@
 <script>
 MathJax = {
   loader: {load: ['input/asciimath', 'output/chtml', 'ui/menu']},
+  // UI/menu allows users to interact with mathjax syntax through right-click
   asciimath: {
     delimiters: [['\`','\`']],
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // don't process these tags
